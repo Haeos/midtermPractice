@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Voters</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>
+
+</head>
+
+<body ng-app="vote" ng-controller="MainCtrl">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="page-header">
+                <h1>Select Candidates to Vote for</h1>
+            </div>
+
+            <div ng-repeat="vote in votes | orderBy: 'name'">
+                <input type="checkbox" ng-model="vote.selected" 
+                ng-true-value="{{vote.name}}" ng-false-value="">{{ vote.name }}</input>
+            </div>
+            <button ng-click='addVotes()'>Vote</button>
+
+        </div>
+    </div>
+</body>
+
+</html>
